@@ -4,6 +4,17 @@ from pathlib import Path
 
 
 def merge_csv_to_excel(csv_files, sheet_names, sep=';'):
+    """ Merge `csv_files` into a single excel file.
+
+        Parameters:
+        -----------
+        csv_files: List of Path
+            Paths to the csv files to be merged.
+        sheet_names: List of str
+            Names of excel worksheets corresponding to the `csv_files`
+        sep: str
+            Delimeter of the csv file.
+    """
     writer = pd.ExcelWriter(DATA_PATH/'merged.xlsx', engine='xlsxwriter')
     for csv, sheet_name in zip(csv_files, sheet_names):
         df = pd.read_csv(csv, sep=sep)
