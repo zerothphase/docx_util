@@ -1,0 +1,12 @@
+name: utils
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pandas
+  - xlrd
+  - xlsxwriter
+  - python-docx
+prefix: C:\Users\Username\Anaconda3\envs\utils
+
