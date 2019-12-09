@@ -3,7 +3,7 @@ from docx import Document
 import pandas as pd
 
 def main():
-    p = r'test.docx'
+    p = r'test_data/test.docx'
     PATH = Path(p)
     get_headings_to_csv(PATH, csv_name="headings.csv")
 
