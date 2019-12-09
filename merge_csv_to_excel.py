@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 
-def merge_csv_to_excel(csv_files, sheet_names, sep=';'):
+def merge_csv_to_excel(csv_files, sheet_names, sep=';', output='merged.xlsx'):
     """ Merge `csv_files` into a single excel file.
 
         Parameters:
@@ -14,8 +14,10 @@ def merge_csv_to_excel(csv_files, sheet_names, sep=';'):
             Names of excel worksheets corresponding to the `csv_files`
         sep: str
             Delimeter of the csv file.
+        output: Path or str
+            Output of the merged excel file.
     """
-    writer = pd.ExcelWriter(DATA_PATH/'merged.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
     for csv, sheet_name in zip(csv_files, sheet_names):
         df = pd.read_csv(csv, sep=sep)
         df.to_excel(writer, sheet_name=sheet_name, index=False)
